@@ -1,19 +1,20 @@
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual-folio</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap" rel="stylesheet">
-        <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="images/favicon.ico"
-        />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+    <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+    <link href="{% static 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap' %}" rel="stylesheet">
+    <link
+    rel="icon"
+    type="image/png' %}"
+    sizes="32x32"
+    href="{% static 'images/favicon.ico' %}"
+    />
 </head>
 <body>
     <section id="spotlight">
@@ -21,26 +22,26 @@
             <header>
                 <div class="left">
                     <h1>
-                        <a href="#" class="logo">V-Folio</a>
+                        <a href="{% static '#' %}" class="logo">V-Folio</a>
                     </h1>
                 </div>
                 <div class="middle">
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Conatct</a></li>
+                        <li><a href="{% static '#' %}">Home</a></li>
+                        <li><a href="{% static '#' %}">About</a></li>
+                        <li><a href="{% static '#' %}">Portfolio</a></li>
+                        <li><a href="{% static '#' %}">Blog</a></li>
+                        <li><a href="{% static '#' %}">Conatct</a></li>
                     </ul>
                 </div>
                 <div class="right">
-                    <a href="" class="button">En</a>
+                    <a href="{% static '#' %}" class="button">En</a>
                 </div>
             </header>
             <section class="wrapper">
                         <small>Welcome</small>
-                        <h1>I'm <b>Mohammed</b> Shiyas</h1>
-                        <a href="#" class="text">UI/UX & Web Designer</a>
+                        <h1>I'm <b>Swalih</b> Moosa</h1>
+                        <a href="{% static '#' %}" class="text">UI/UX & Web Designer</a>
             </section>
         </section>
     </section>
@@ -49,7 +50,7 @@
             <div class="container">
                 <div class="left">
                     <div class="img-container">
-                        <img src="images/profile.jfif" alt="" />
+                        <img src="{% static 'images/profile.jfif' %}" alt="" />
                         <div class="box"></div>
                     </div>
                 </div>
@@ -67,7 +68,7 @@
                         <li><h4><b>Age : </b>24</h4></li>
                         <li><h4><b>Gender : </b>Male</h4></li>
                     </ul>
-                    <a href="#" class="button">
+                    <a href="{% static '#' %}" class="button">
                         Download CV
                     </a>
                 </div>
@@ -242,14 +243,14 @@
             <ul>
                 <li>
                     <div class="image-container">
-                        <img src="images/paint-bucket.png" alt="paint-bucket" />
+                        <img src="{% static 'images/paint-bucket.png' %}" alt="paint-bucket" />
                     </div>
                     <h2>Web Design</h2>
                     <p>There are many variations of passages of lorem ipsum available</p>
                 </li>
                 <li>
                     <div class="image-container">
-                        <img src="images/search.png" alt="Search">
+                        <img src="{% static 'images/search.png' %}" alt="Search">
                     </div>
                     
                     <h2>SEO</h2>
@@ -257,14 +258,14 @@
                 </li>
                 <li>
                     <div class="image-container">
-                        <img src="images/uiux-design.png" alt="uiux-design" />
+                        <img src="{% static 'images/uiux-design.png' %}" alt="uiux-design" />
                     </div>
                     <h2>UI/UX Design</h2>
                     <p>There are many variations of passages of lorem ipsum available</p>
                 </li>
                 <li>
                     <div class="image-container">
-                        <img src="images/developer.png" alt="Developer" />
+                        <img src="{% static 'images/developer.png' %}" alt="Developer" />
                     </div>
                     <h2>Web Development</h2>
                     <p>There are many variations of passages of lorem ipsum available</p>
@@ -332,7 +333,7 @@
                     <ul>
                         <li>
                             <div class="box">
-                                <img src="images/work/work-1.jpg" alt="work">
+                                <img src="{% static 'images/work/work-1.jpg' %}" alt="work">
                                 <div class="text">
                                     <h2>Mobile Travel App</h2>
                                     <h5>- Travel, Discovery</h5>
@@ -341,7 +342,7 @@
                         </li>
                         <li>
                             <div class="box">
-                                <img src="images/work/work-2.jpg" alt="work">
+                                <img src="{% static 'images/work/work-2.jpg' %}" alt="work">
                                 <div class="text">
                                     <h2>Music App</h2>
                                     <h5>- Musics</h5>
@@ -350,7 +351,7 @@
                         </li>
                         <li>
                             <div class="box">
-                                <img src="images/work/work-3.jpg" alt="work">
+                                <img src="{% static 'images/work/work-3.jpg' %}" alt="work">
                                 <div class="text">
                                     <h2>Gaming Dashboard</h2>
                                     <h5>- GAmes, Streaming</h5>
@@ -359,7 +360,7 @@
                         </li>
                         <li>
                             <div class="box">
-                                <img src="images/work/work-4.jpg" alt="work">
+                                <img src="{% static 'images/work/work-4.jpg' %}" alt="work">
                                 <div class="text">
                                     <h2>Drugs Delivery App</h2>
                                     <h5>- Health, Drugs</h5>
@@ -368,7 +369,7 @@
                         </li>
                         <li>
                             <div class="box">
-                                <img src="images/work/work-5.jpg" alt="work">
+                                <img src="{% static 'images/work/work-5.jpg' %}" alt="work">
                                 <div class="text">
                                     <h2>Musics Discover</h2>
                                     <h5>- Musics, Dashboards</h5>
@@ -377,7 +378,7 @@
                         </li>
                         <li>
                             <div class="box">
-                                <img src="images/work/work-6.jpg" alt="work" />
+                                <img src="{% static 'images/work/work-6.jpg' %}" alt="work" />
                                 <div class="text">
                                     <h2>Game Streaming</h2>
                                     <h5>- Games Streaming</h5>
@@ -385,7 +386,7 @@
                             </div>
                         </li>
                     </ul>
-                    <a href="" class="button">Load More</a>
+                    <a href="{% static '#' %}" class="button">Load More</a>
                 </div>
             </section>
         </section>
@@ -420,42 +421,42 @@
                 <ul>
                     <li>
                         <div class="box">
-                            <a href="#"><img src="images/logo/company_1.svg" alt="company"></a>
+                            <a href="{% static '#' %}"><img src="{% static 'images/logo/company_1.svg' %}" alt="company"></a>
                         </div>
                     </li>
                     <li>
                         <div class="box">
-                            <a href="#"><img src="images/logo/company_2.svg" alt="company"></a>
+                            <a href="{% static '#' %}"><img src="{% static 'images/logo/company_2.svg' %}" alt="company"></a>
                         </div>
                     </li>
                     <li>
                         <div class="box">
-                            <a href="#"><img src="images/logo/company_3.svg" alt="company"></a>
+                            <a href="{% static '#' %}"><img src="{% static 'images/logo/company_3.svg' %}" alt="company"></a>
                         </div>
                     </li>
                     <li>
                         <div class="box">
-                            <a href="#"><img src="images/logo/company_4.svg" alt="company"></a>
+                            <a href="{% static '#' %}"><img src="{% static 'images/logo/company_4.svg' %}" alt="company"></a>
                         </div>
                     </li>
                     <li>
                         <div class="box">
-                            <a href="#"><img src="images/logo/company_5.svg" alt="company"></a>
+                            <a href="{% static '#' %}"><img src="{% static 'images/logo/company_5.svg' %}" alt="company"></a>
                         </div>
                     </li>
                     <li>
                         <div class="box">
-                            <a href="#"><img src="images/logo/company_6.svg" alt="company"></a>
+                            <a href="{% static '#' %}"><img src="{% static 'images/logo/company_6.svg' %}" alt="company"></a>
                         </div>
                     </li>
                     <li>
                         <div class="box">
-                            <a href="#"><img src="images/logo/company_7.svg" alt="company"></a>
+                            <a href="{% static '#' %}"><img src="{% static 'images/logo/company_7.svg' %}" alt="company"></a>
                         </div>
                     </li>
                     <li>
                         <div class="box">
-                            <a href="#"><img src="images/logo/company_8.svg" alt="company"></a>
+                            <a href="{% static '#' %}"><img src="{% static 'images/logo/company_8.svg' %}" alt="company"></a>
                         </div>
                     </li>
                    
@@ -469,7 +470,7 @@
             <h1>Latest Post</h1>
             <div class="items">
                 <div class="item">
-                    <img src="images/work/work-9.jpg" alt="work" />
+                    <img src="{% static 'images/work/work-9.jpg' %}" alt="work" />
                     <div class="box">
                         <h5>Technology</h5>
                         <h2>Invision design forward fund</h2>
@@ -477,7 +478,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="images/work/work-6.jpg" alt="work">
+                    <img src="{% static 'images/work/work-6.jpg' %}" alt="work">
                     <div class="box">
                         <h5>Business</h5>
                         <h2>Annoying a plan for small teams</h2>
@@ -485,7 +486,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img src="images/work/work-1.jpg" alt="Work" />
+                    <img src="{% static 'images/work/work-1.jpg' %}" alt="Work" />
                     <div class="box">
                         <h5>Design<h5>
                         <h2>5 Basic steps for illustrating</h2>
@@ -493,7 +494,7 @@
                     </div>
                 </div>
             </div>
-            <a href="" class="button">
+            <a href="{% static '#' %}" class="button">
                 See All Post
             </a>
         </section>
@@ -505,7 +506,7 @@
             <div class="items">
                 <div class="left">
                     <div class="container">
-                        <img src="images/map1.PNG" alt="Map" />
+                        <img src="{% static 'images/map1.PNG' %}" alt="Map" />
                     </div>
                 </div>
                 <div class="right">
@@ -550,7 +551,7 @@
                     <input type="email" placeholder="Email address">
                     <input type="submit" value="Subscribe">
                 </form>
-                <small>Copyright &copy;2020.All right reserved | This template is made by <span> &#9825; </span> <a href="#">MAcode ID</a></small>
+                <small>Copyright &copy;2020.All right reserved | This template is made by <span> &#9825; </span> <a href="{% static '#' %}">MAcode ID</a></small>
             </div>
         </section>
     </footer>
