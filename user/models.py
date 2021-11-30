@@ -37,4 +37,49 @@ class Address(models.Model):
 
 
 class Skill(models.Model):
-    name = models.ForeignKey
+    name = models.CharField(max_length=125)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["id"]
+
+
+class SkillItems(models.Model):
+    skill = models.ForeignKey("user.Skill",on_delete=models.CASCADE)
+    rating = models.CharField(max_length=125)
+    item = models.CharField(max_length=125)
+
+    def __str__(self):
+        return self.skill
+
+    class Meta:
+        ordering = ["id"]
+
+
+class Education(models.Model):
+    year = models.CharField(max_length=125)
+    course = models.CharField(max_length=125)
+    university = models.CharField(max_length=125)
+    description = models.TextField(max_length=125)
+
+    def __str__(self):
+        return self.course
+
+    class Meta:
+        ordering = ["id"]
+
+
+class Experience(models.Model):
+    year = models.CharField(max_length=125)
+    work = models.CharField(max_length=125)
+    company = models.CharField(max_length=125)
+    description = models.TextField(max_length=125)
+
+    def __str__(self):
+        return self.work
+
+    class Meta:
+        ordering = ["id"]
+    
