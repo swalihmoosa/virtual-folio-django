@@ -82,4 +82,16 @@ class Experience(models.Model):
 
     class Meta:
         ordering = ["id"]
+
+
+class Client(models.Model):
+    name = models.CharField(max_length=125)
+    image = models.ImageField(upload_to="client/")
+    company = models.CharField(max_length=125)
+    description = models.TextField(max_length=125)
     
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["id"]

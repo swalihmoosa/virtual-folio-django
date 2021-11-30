@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from user.models import Address, Education, Experience, Profile, Skill, SkillItems
+from user.models import Address, Client, Education, Experience, Profile, Skill, SkillItems
 
 
 class ProfileAdmin(admin.ModelAdmin):
@@ -34,3 +34,9 @@ class ExperienceAdmin(admin.ModelAdmin):
     list_display = ["work", "company", "year", "description"]
 
 admin.site.register(Experience, ExperienceAdmin)
+
+
+class ClientAdmin(admin.ModelAdmin):
+    list_display = ["name", "company", "description", "image"]
+
+admin.site.register(Client, ClientAdmin)
