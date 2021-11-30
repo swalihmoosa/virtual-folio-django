@@ -1,6 +1,6 @@
 from django.urls import path
 
-from user.views import index
+from web.views import index
 
 
 app_name = "user"
