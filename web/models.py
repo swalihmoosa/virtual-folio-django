@@ -26,3 +26,13 @@ class Contact(models.Model):
 
     class Meta:
         ordering = ["id"]
+
+
+class Subscribe(models.Model):
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        ordering = ["id"]

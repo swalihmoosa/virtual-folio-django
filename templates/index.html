@@ -39,39 +39,40 @@
                 </div>
             </header>
             <section class="wrapper">
-                        <small>Welcome</small>
-                        <h1>I'm <b>Swalih</b> Moosa</h1>
-                        <a href="{% static '#' %}" class="text">UI/UX & Web Designer</a>
+                {% for profile in profiles %}
+                    <small>Welcome</small>
+                    <h1>I'm <b>{{profile.name}}</b></h1>
+                    <a href="{% static '#' %}" class="text">{{profile.profession}}</a>
+                {% endfor %}
             </section>
         </section>
     </section>
     <section id="profile">
         <section class="wrapper">
             <div class="container">
+                {% for profile in profiles %}
                 <div class="left">
                     <div class="img-container">
-                        <img src="{% static 'images/profile.jfif' %}" alt="" />
+                        <img src="{{profile.image.url}}" alt="" />
                         <div class="box"></div>
                     </div>
                 </div>
                 <div class="right">
-                    <h1>Mohammed Shiyas</h1>
-                    <h6>UI/UX & Web Designer</h6>
-                    <p>Creating user-centered designs by understanding business requirements,
-                        and user feedback. Creating user flows, wireframes, prototypes and mockups.
-                        Translating requirements into style guides, design systems, design patterns
-                        and attractive user interfaces.
+                    <h1>{{profile.name}}</h1>
+                    <h6>{{profile.profession}}</h6>
+                    <p>{{profile.description}}
                     </p>
                     <ul>
-                        <li><h4><b>From : </b>Malappuram, Kerala</h4></li>
-                        <li><h4><b>Lives in : </b> Ernankulam, Kerala</h4></li>
-                        <li><h4><b>Age : </b>24</h4></li>
-                        <li><h4><b>Gender : </b>Male</h4></li>
+                        <li><h4><b>From : </b>{{profile.address.permanent_district}},{{profile.address.permanent_state}}</h4></li>
+                        <li><h4><b>Lives in : </b>{{profile.address.current_disctrict}},{{profile.address.current_state}}</h4></li>
+                        <li><h4><b>Age : </b>{{profile.age}}</h4></li>
+                        <li><h4><b>Gender : </b>{{profile.gender}}</h4></li>
                     </ul>
                     <a href="{% static '#' %}" class="button">
                         Download CV
                     </a>
                 </div>
+                {% endfor %}
             </div>
         </section>
     </section>

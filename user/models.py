@@ -25,11 +25,14 @@ class Profile(models.Model):
 
 
 class Address(models.Model):
-    state = models.CharField(max_length=125)
-    district = models.CharField(max_length=125)
+    permanent_state = models.CharField(max_length=125)
+    permanent_district = models.CharField(max_length=125)
+    current_state = models.CharField(max_length=125,default=permanent_state)
+    current_disctrict = models.CharField(max_length=125,default=permanent_district)
+
 
     def __str__(self):
-        return self.state
+        return self.permanent_state
 
     class Meta:
         ordering = ["id"]

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from web.models import Contact, Testimonial
+from web.models import Contact, Subscribe, Testimonial
 
 
 class TestimonialAdmin(admin.ModelAdmin):
@@ -12,3 +12,6 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ["name", "email", "subject", "message"]
 
 admin.site.register(Contact, ContactAdmin)
+
+
+admin.site.register(Subscribe)

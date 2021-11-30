@@ -10,7 +10,7 @@ admin.site.register(Profile, ProfileAdmin)
 
 
 class AddressAdmin(admin.ModelAdmin):
-    list_display = ["state", "district"]
+    list_display = ["permanent_state", "permanent_district"]
 
 admin.site.register(Address, AddressAdmin)
 
