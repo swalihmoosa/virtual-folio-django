@@ -7,6 +7,8 @@ from web.models import Contact, Subscribe, Testimonial
 from works.models import Category, Project, Service
 
 def index(request):
+    category_name = request.GET.get("category")
+
     profiles = Profile.objects.all()
     addresses = Address.objects.all()
     skills = Skill.objects.all()
@@ -18,14 +20,19 @@ def index(request):
     contacts = Contact.objects.all()
     subscribes = Subscribe.objects.all()
 
-    service = Service.objects.all()
-    category = Category.objects.all()
-    project = Project.objects.all()
+    services = Service.objects.all()
+    categories = Category.objects.all()
+    projects = Project.objects.all()
     clients = Client.objects.all()
     client_count = Client.objects.all().count
-    project_complete = project.filter(is_completed=True).count()
-    project_ongoing = project.filter(is_completed=False).count()
-    client_satisfied = project.filter(is_satisfied=True).count()
+    project_complete = projects.filter(is_completed=True).count()
+    project_ongoing = projects.filter(is_completed=False).count()
+    client_satisfied = projects.filter(is_satisfied=True).count()
+
+    if category_name:
+        projects = projects.filter(category__name=category_name)
+    else:
+        projects = projects.filter()[:6]
 
 
 
@@ -44,9 +51,9 @@ def index(request):
         "testimonials" : testimonials,
         "contacts" : contacts,
         "subscribes" : subscribes,
-        "service" : service,
-        "category" : category,
-        "project" : project
+        "services" : services,
+        "categories" : categories,
+        "projects" : projects
 
     }
     

@@ -5,7 +5,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+app_name = "web"
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",include("user.urls",namespace="user"))
+    path("",include("web.urls",namespace="web"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
