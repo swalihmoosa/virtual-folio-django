@@ -30,7 +30,7 @@ class Project(models.Model):
     title = models.CharField(max_length=125)
     is_completed = models.BooleanField(default=False)
     is_satisfied = models.BooleanField(default=False)
-    category = models.ForeignKey("works.category")
+    category = models.ForeignKey("works.category", on_delete=models.CASCADE)
     clients = models.ForeignKey("user.client",on_delete=models.CASCADE,blank=True,null=True)
 
     def __str__(self):
