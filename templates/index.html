@@ -113,57 +113,29 @@
             <section class="items">
                 <div class="left">
                     <h3>Education</h3>
+                    {% for education in educations %}
                     <div class="item">
-                        <span class="current"><h2>2010</h2></span>
+                        <span class="current"><h2>{{education.year}}</h2></span>
                         <div class="content">
-                            <h4>Specialize of course</h4>
-                            <small>University of study</small>
-                            <p>There are many variation of lore ipsum available, but majority has suffered</p>
+                            <h4>{{education.course}}</h4>
+                            <small>{{education.university}}</small>
+                            <p>{{education.description}}</p>
                         </div>
                     </div>
-                    <div class="item">
-                        <h2>2009</h2>
-                        <div class="content">
-                            <h4>Specialize of course</h4>
-                            <small>University of study</small>
-                            <p>There are many variation of lore ipsum available, but majority has suffered</p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <h2>2008</h2>
-                        <div class="content last">
-                            <h4>Specialize of course</h4>
-                            <small>University of study</small>
-                            <p>There are many variation of lore ipsum available, but majority has suffered</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="right">
                     <h3>Experience</h3>
+                    {% for experience in  experiences %}
                     <div class="item">
-                        <span class="current"><h2>2017-Current</h2></span>
+                        <span class="current"><h2>{{experience.year}}</h2></span>
                         <div class="content">
-                            <h4>Specialize of course</h4>
-                            <small>University of study</small>
-                            <p>There are many variation of lore ipsum available, but majority has suffered</p>
+                            <h4>{{experience.work}}</h4>
+                            <small>{{experience.company}}</small>
+                            <p>{{experience.description}}</p>
                         </div>
                     </div>
-                    <div class="item">
-                        <h2>2014</h2>
-                        <div class="content">
-                            <h4>Specialize of course</h4>
-                            <small>University of study</small>
-                            <p>There are many variation of lore ipsum available, but majority has suffered</p>
-                        </div>
-                    </div>
-                    <div class="item line">
-                        <h2>2011</h2>
-                        <div class="content last">
-                            <h4>Specialize of course</h4>
-                            <small>University of study</small>
-                            <p>There are many variation of lore ipsum available, but majority has suffered</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </section>
         </section>
