@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from works.models import Project, Service
+from works.models import Category, Project, Service
 
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -13,3 +13,6 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ["title", "category", "is_completed", "clients"]
 
 admin.site.register(Project, ProjectAdmin)
+
+
+admin.site.register(Category)
