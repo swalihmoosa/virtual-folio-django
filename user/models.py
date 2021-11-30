@@ -55,7 +55,7 @@ class SkillItems(models.Model):
     item = models.CharField(max_length=125)
 
     def __str__(self):
-        return self.skill
+        return self.item
 
     class Meta:
         ordering = ["id"]

@@ -84,96 +84,27 @@
                     </h1>
                 </div>
                 <section class="container">
-                   
+                    {% for skill in skills %}
                     <div class="left">
                         <div class="item">
-                            <h5>Coding Skills</h5>
+                            <h5>{{skill.name}}</h5>
+                            {% for skillitem in skillitems %}
+                            {% if skillitem.skill == skill %}
                             <h4>
-                                JavaScript
+                                {{skillitem.item}}
                             </h4>
                             <div class="skillbar">
-                                <div class="percentage">
+                                <div class="percentage" style="width: {{skillitem.rating}};">
                                     <small>
-                                        86%
+                                        {{skillitem.rating}}
                                     </small>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <h4>
-                               PHP
-                            </h4>
-                            <div class="skillbar">
-                                <div class="php">
-                                    <small>
-                                        80%
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <h4>
-                                 HTML/CSS
-                            </h4>
-                            <div class="skillbar">
-                                <div class="html">
-                                    <small>
-                                        100%
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <h4>
-                               Python
-                            </h4>
-                            <div class="skillbar">
-                                <div class="python">
-                                    <small>
-                                        90%
-                                    </small>
-                                </div>
-                            </div>
+                            {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
-                    <div class="right">
-                        <div class="item">
-                            <h5>Design Skills</h5>
-                            <h4>
-                                UI/UX Design
-                            </h4>
-                            <div class="skillbar">
-                                <div class="design">
-                                    <small>
-                                        92%
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <h4>
-                               Web Design
-                            </h4>
-                            <div class="skillbar">
-                                <div class="web">
-                                    <small>
-                                        99%
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <h4>
-                                 Logo Design
-                            </h4>
-                            <div class="skillbar">
-                                <div class="logo">
-                                    <small>
-                                        79%
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
+                    {% endfor %}
                 </section>
         </section>
     </section>

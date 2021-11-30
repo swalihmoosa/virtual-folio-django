@@ -344,7 +344,7 @@ background: white;
 }
 
 #myskills section.wrapper section.container div.left {
-	width: 50%;
+	width: 45%;
 }
 #myskills section.wrapper section.container div.left div.item{
 	margin-bottom: 12px;
@@ -363,6 +363,7 @@ background: white;
 	width: 100%;
 	border-radius: 10px;
 	padding: 1px;
+	margin-bottom: 3%;
 }
 #myskills section.wrapper section.container div.left div.item div.skillbar div.percentage{
 	background: #2a60f6;
