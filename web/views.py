@@ -1,10 +1,17 @@
+import json
+
+from django.http.response import HttpResponse
+
 from django.shortcuts import render
+
+from web.forms import ContactForm
 
 from user.models import Address, Client, Education, Experience, Profile, Skill, SkillItems
 
 from web.models import Contact, Subscribe, Testimonial
 
 from works.models import Category, Project, Service
+
 
 def index(request):
     category_name = request.GET.get("category")
@@ -28,6 +35,8 @@ def index(request):
     project_complete = projects.filter(is_completed=True).count()
     project_ongoing = projects.filter(is_completed=False).count()
     client_satisfied = projects.filter(is_satisfied=True).count()
+    form = ContactForm()
+
 
     if category_name:
         projects = projects.filter(category__name=category_name)
@@ -53,8 +62,39 @@ def index(request):
         "subscribes" : subscribes,
         "services" : services,
         "categories" : categories,
-        "projects" : projects
+        "projects" : projects,
+        "form" : form
+
 
     }
     
     return render(request,"index.html", context=context)
+
+
+
+def contact(request):
+    form = ContactForm(request.POST)
+
+    if form.is_valid():
+        if not Contact.objects.filter(email=request.POST.get('email')).exists():
+            form.save()
+
+            response_data = {
+                "status" : "success",
+                "title" : "Successfully Registered",
+                "message" : "You are Subscribed to the News Letter"
+            }
+        else:
+            response_data = {
+                "status" : "error",
+                "title" : "Already Registered",
+                "message" : "You are Already Subscribed to the News Letter,no need to Subscribe again"
+            }
+    else:
+        response_data = {
+                "status" : "error",
+                "title" : "Your Form is Not Valid",
+                "message" : "Your Form is Not Valid,Try again"
+            }
+
+    return HttpResponse(json.dumps(response_data),content_type="application/javascript")
