@@ -4,7 +4,7 @@ from django.http.response import HttpResponse
 
 from django.shortcuts import render
 
-from web.forms import ContactForm
+from web.forms import ContactForm, SubscribeForm
 
 from user.models import Address, Client, Education, Experience, Profile, Skill, SkillItems
 
@@ -36,6 +36,7 @@ def index(request):
     project_ongoing = projects.filter(is_completed=False).count()
     client_satisfied = projects.filter(is_satisfied=True).count()
     form = ContactForm()
+    subscribe_form = SubscribeForm()
 
 
     if category_name:
@@ -63,13 +64,11 @@ def index(request):
         "services" : services,
         "categories" : categories,
         "projects" : projects,
-        "form" : form
-
-
+        "form" : form,
+        "subscribe_form" : subscribe_form
     }
     
     return render(request,"index.html", context=context)
-
 
 
 def contact(request):
@@ -96,5 +95,33 @@ def contact(request):
                 "title" : "Your Form is Not Valid",
                 "message" : "Your Form is Not Valid,Try again"
             }
+
+    return HttpResponse(json.dumps(response_data),content_type="application/javascript")
+
+
+def subscribe(request):
+    subscribe_form = SubscribeForm(request.POST)
+
+    if subscribe_form.is_valid():
+        if not Subscribe.objects.filter(email=request.POST.get('email')).exists():
+            subscribe_form.save()
+
+            response_data = {
+                "status" : "success",
+                "title" : "Successfully Registered",
+                "message" : "You are Subscribed to the News Letter"
+            }
+        else:
+            response_data = {
+                "status" : "error",
+                "title" : "Already Registered",
+                "message" : "You are Already Subscribed to the News Letter,no need to Subscribe again"
+            }
+    else:
+        response_data = {
+                "status" : "error",
+                "title" : "Your Form is Not Valid",
+                "message" : "Your Form is Not Valid,Try again"
+    }
 
     return HttpResponse(json.dumps(response_data),content_type="application/javascript")

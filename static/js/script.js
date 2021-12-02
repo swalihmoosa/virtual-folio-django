@@ -39,24 +39,24 @@ $(document).ready(function () {
     });
 
 
-    $( "a.category" ).click(function(event) {
-        event.preventDefault();
+    // $( "a.category" ).click(function(event) {
+    //     event.preventDefault();
 
-        var category = $this.attr("category")
+    //     var category = $this.attr("category")
 
-        $.ajax({
-            url: "{% url 'web:index' %}?category={{category.name}}",
-            method: 'GET',
-            data : {
-                projects = projects.filter(category__name=category_name)
-            },
-            success: function(data){
-                console.log(data)
-            },
-            error: function(xhr, errmsg, err){
-                console.log("error")
-                console.log(error_data)
-            }
-       });
-    });
+    //     $.ajax({
+    //         url: "{% url 'web:index' %}?category={{category.name}}",
+    //         method: 'GET',
+    //         data : {
+    //             projects = projects.filter(category__name=category_name)
+    //         },
+    //         success: function(data){
+    //             console.log(data)
+    //         },
+    //         error: function(xhr, errmsg, err){
+    //             console.log("error")
+    //             console.log(error_data)
+    //         }
+    //    });
+    // });
 });

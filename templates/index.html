@@ -68,7 +68,7 @@
                         <li><h4><b>Age : </b>{{profile.age}}</h4></li>
                         <li><h4><b>Gender : </b>{{profile.gender}}</h4></li>
                     </ul>
-                    <a href="{% static '#' %}" class="button">
+                    <a href="{{profile.resume.url}}" class="button" download>
                         Download CV
                     </a>
                 </div>
@@ -388,8 +388,9 @@
             </div>
             <div class="bottom">
                 <h3>Subscribe</h3>
-                <form action="">
-                    <input type="email" placeholder="Email address">
+                <form action="{% url 'web:subscribe' %}" method="post" class="ajax">
+                    {% csrf_token %}
+                    {{subscribe_form.email}}
                     <input type="submit" value="Subscribe">
                 </form>
                 <small>Copyright &copy;2020.All right reserved | This template is made by <span> &#9825; </span> <a href="{% static '#' %}">MAcode ID</a></small>
