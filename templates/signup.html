@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="{% url 'web:signup' %}" method="post" class="ajax">
+    <form action="{% url 'web:signup' %}" method="post">
         {% csrf_token %}
 
         {{form.name}}
