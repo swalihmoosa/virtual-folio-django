@@ -1,8 +1,8 @@
 from django import forms
 from django.db.models import fields
 from django.forms import ModelForm
-from django.forms.widgets import EmailInput, TextInput, Textarea
-from web.models import Contact, Subscribe
+from django.forms.widgets import EmailInput, PasswordInput, TextInput, Textarea
+from web.models import Contact, Signup, Subscribe
 
 
 class ContactForm(ModelForm):
@@ -25,4 +25,16 @@ class SubscribeForm(ModelForm):
         fields = "__all__"
         widgets = {
             "email" : EmailInput(attrs={"placeholder" : "Enter Email"}),
+        }
+
+
+class SignupForm(ModelForm):
+
+    class Meta:
+        model = Signup
+        fields = "__all__"
+        widgets = {
+            "name" : TextInput(attrs={"placeholder" : "Enter Name"}),
+            "username" : TextInput(attrs={"placeholder" : "Enter Username"}),
+            "password" : PasswordInput(attrs={"placeholder" : "Enter Password"})
         }

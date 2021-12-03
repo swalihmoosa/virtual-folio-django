@@ -35,7 +35,7 @@
                     </ul>
                 </div>
                 <div class="right">
-                    <a href="{% static '#' %}" class="button">En</a>
+                    <a href="{% url 'web:login' %}" class="button">En</a>
                 </div>
             </header>
             <section class="wrapper">
@@ -74,6 +74,7 @@
                 </div>
                 {% endfor %}
             </div>
+            
         </section>
     </section>
     <section id="myskills">

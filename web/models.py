@@ -36,3 +36,26 @@ class Subscribe(models.Model):
 
     class Meta:
         ordering = ["id"]
+
+
+class Login(models.Model):
+    username = models.CharField(max_length=125)
+    password = models.CharField(max_length=125)
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        ordering = ["id"]
+
+
+class Signup(models.Model):
+    name = models.CharField(max_length=125)
+    username = models.CharField(max_length=125)
+    password = models.CharField(max_length=125)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        ordering = ["id"]

@@ -2,15 +2,16 @@ import json
 
 from django.http.response import HttpResponse
 
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
-from web.forms import ContactForm, SubscribeForm
+from web.forms import ContactForm, SignupForm, SubscribeForm
 
 from user.models import Address, Client, Education, Experience, Profile, Skill, SkillItems
 
-from web.models import Contact, Subscribe, Testimonial
+from web.models import Contact, Login, Signup, Subscribe, Testimonial
 
 from works.models import Category, Project, Service
+from django.contrib.auth import authenticate
 
 
 def index(request):
@@ -38,7 +39,6 @@ def index(request):
     form = ContactForm()
     subscribe_form = SubscribeForm()
 
-
     if category_name:
         projects = projects.filter(category__name=category_name)
     else:
@@ -65,7 +65,7 @@ def index(request):
         "categories" : categories,
         "projects" : projects,
         "form" : form,
-        "subscribe_form" : subscribe_form
+        "subscribe_form" : subscribe_form,
     }
     
     return render(request,"index.html", context=context)
@@ -105,6 +105,58 @@ def subscribe(request):
     if subscribe_form.is_valid():
         if not Subscribe.objects.filter(email=request.POST.get('email')).exists():
             subscribe_form.save()
+
+            response_data = {
+                "status" : "success",
+                "title" : "Successfully Registered",
+                "message" : "You are Subscribed to the News Letter"
+            }
+        else:
+            response_data = {
+                "status" : "error",
+                "title" : "Already Registered",
+                "message" : "You are Already Subscribed to the News Letter,no need to Subscribe again"
+            }
+    else:
+        response_data = {
+                "status" : "error",
+                "title" : "Your Form is Not Valid",
+                "message" : "Your Form is Not Valid,Try again"
+    }
+
+    return HttpResponse(json.dumps(response_data),content_type="application/javascript")
+
+
+def login(request):
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    user = Signup.objects.filter(username=username,password=password)
+
+    if user:
+        return redirect("/")
+    else:
+        print("######################################################","error")
+
+    return render(request,"login.html")
+
+
+def signup_page(request):
+    signup_form = SignupForm()
+
+    context = {
+        "form" : signup_form
+    }
+
+    return render(request,"signup.html",context=context)
+
+
+
+def signup(request):
+    signup_form_model = SignupForm(request.POST)
+
+    if signup_form_model.is_valid():
+        if not Signup.objects.filter(username=request.POST.get('username')).exists():
+            signup_form_model.save()
 
             response_data = {
                 "status" : "success",
